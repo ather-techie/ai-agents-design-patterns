@@ -10,6 +10,14 @@
 
 ![Banner](docs/banner.png)
 
+---
+
+> **Also by the author:**
+> - [RAG Interview System](https://github.com/ather-techie/rag-interview-system) — Retrieval-Augmented Generation pipeline for technical interview prep
+> - [AI System Design Interview](https://github.com/ather-techie/ai-system-design-interview) — Structured guides and patterns for AI/ML system design interviews
+
+---
+
 ## Contents
 
 - [The problem this solves](#the-problem-this-solves)
