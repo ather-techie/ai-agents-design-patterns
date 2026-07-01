@@ -8,6 +8,8 @@
 ![Patterns](https://img.shields.io/badge/patterns-20-blueviolet)
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](#)
 
+![Banner](docs/banner.png)
+
 ## Contents
 
 - [The problem this solves](#the-problem-this-solves)
