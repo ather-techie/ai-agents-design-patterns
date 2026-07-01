@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg-link
+
+# Virtual environments
+.venv/
+venv/
+env/
+.env
+ENV/
+
+# Environment variables (keep .env.example)
+.env
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+*.test
+
+# Type checking
+.mypy_cache/
+.dmypy.json
+.pyright/
+
+# IDEs
+.vscode/
+.idea/
+*.suo
+*.user
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Logs
+*.log

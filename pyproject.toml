@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ai-agents-design-patterns"
+version = "0.1.0"
+description = "Runnable, tested, traced, and benchmarked LLM agent design patterns."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+    "anthropic>=0.40",
+    "rich>=13.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
+
+[tool.setuptools]
+# Patterns live under hyphenated, digit-led dirs that aren't importable as
+# packages; they're loaded by path. Only the shared core and bench harness are
+# installed as packages.
+packages = ["shared", "bench"]
+
+[tool.pytest.ini_options]
+# importlib mode lets the two identically-named `test_pattern.py` files coexist
+# without unique package names; pythonpath puts `shared` on the path.
+addopts = "-q --import-mode=importlib"
+testpaths = ["patterns"]
+pythonpath = ["."]
+python_files = ["test_*.py"]
