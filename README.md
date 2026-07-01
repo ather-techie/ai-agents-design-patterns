@@ -1,6 +1,6 @@
 # AI Agents Design Patterns
 
-20 production-ready LLM agent design patterns in Python — each runnable offline, benchmarked against the others, and traced step by step. From simple Prompt Chaining to multi-agent orchestration, ReAct loops, and constitutional AI. No API key required.
+20 production-ready LLM agent design patterns in Python, each runnable offline, benchmarked against the others, and traced step by step. From simple Prompt Chaining to multi-agent orchestration, ReAct loops, and constitutional AI. No API key required.
 
 ![Python](https://img.shields.io/badge/python-3.11%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
@@ -42,7 +42,7 @@
 
 Most LLM agent design pattern repositories give you isolated tutorials with no way to compare them. They don't tell you *which pattern to reach for*, and they won't run without an API key and 30 minutes of setup.
 
-This repo answers the question you actually have: **which agentic AI pattern fits my task, and why?** It runs the same four tasks through all 20 patterns in offline mock mode and prints a single tradeoff table — cost, latency, and reliability side by side. Every run is **traced**: you can watch each reasoning step, tool call, and observation as it happens.
+This repo answers the question you actually have: **which agentic AI pattern fits my task, and why?** It runs the same four tasks through all 20 patterns in offline mock mode and prints a single tradeoff table, cost, latency, and reliability side by side. Every run is **traced**: you can watch each reasoning step, tool call, and observation as it happens.
 
 ## Quick start
 
@@ -141,7 +141,7 @@ USE_MOCK=1 python patterns/01-prompt-chaining/example.py
 
 - A single classification determines which specialized handler runs.
 - You have distinct task types (billing, technical, general) requiring different prompts.
-- You want the cheapest possible agent baseline — one classification call plus one handler call.
+- You want the cheapest possible agent baseline, one classification call plus one handler call.
 
 ```bash
 make routing-demo
@@ -388,9 +388,11 @@ ai-agents-design-patterns/
 │   ├── config.py            # Config.from_env() — resolves mock/live mode and all overrides
 │   ├── types.py             # Message · LLMResponse · ToolCall · ToolResult · Usage
 │   ├── loader.py            # load_pattern_module("NN-name") — file-path import
-│   └── errors.py            # MaxStepsExceeded · ToolValidationError · AgentError
+│   ├── errors.py            # MaxStepsExceeded · ToolValidationError · AgentError
+│   └── observability.py     # structured JSON logging (AGENT_LOG) + @timed decorator
 ├── bench/
 │   └── compare.py           # cross-pattern comparison harness
+├── docs/                    # static assets (banner image, etc.)
 ├── Makefile                 # install · demo · bench · test · per-pattern demo targets
 └── pyproject.toml
 ```
