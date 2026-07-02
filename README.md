@@ -29,6 +29,7 @@
   - [Tool-Using Agents](#tool-using-agents)
   - [Multi-Agent Coordination](#multi-agent-coordination)
   - [Control Flow and State](#control-flow-and-state)
+- [Interview prep](#interview-prep)
 - [Benchmark](#benchmark)
 - [Project structure](#project-structure)
 - [Contributing a pattern](#contributing-a-pattern)
@@ -353,6 +354,19 @@ make event-driven-demo
 
 ---
 
+## Interview prep
+
+Every pattern directory includes an [`interview.md`](patterns/07-react/interview.md) file with 8 questions and answers covering:
+
+- **Conceptual** — what the pattern is and why you'd choose it
+- **Trade-offs** — how it compares to similar patterns and when it breaks down
+- **Implementation & Failure Modes** — concrete failure scenarios and how to guard against them
+- **Extension** — realistic modifications (tool calls, hybrid patterns, scaling)
+
+[`INTERVIEW_PREP.md`](INTERVIEW_PREP.md) at the repo root is a master index with a recommended study path, organized from foundational to advanced, plus 8 cross-pattern comparison questions that interviewers often ask (e.g., *ReAct vs. Plan-and-Execute*, *Reflection vs. Evaluator-Optimizer*, *when to use Debate vs. Constitutional*).
+
+---
+
 ## Benchmark
 
 `make bench` loads all 20 patterns via `load_pattern_module`, runs the same four customer-support tasks through each in offline mock mode, and prints a single Rich table.
@@ -376,11 +390,14 @@ python -m bench.compare
 
 ```
 ai-agents-design-patterns/
+├── INTERVIEW_PREP.md        # master interview index — study path + cross-pattern questions
 ├── patterns/
 │   └── NN-name/
 │       ├── pattern.py       # implementation — one run_* function + result dataclass
 │       ├── example.py       # runnable demo with deterministic mock_planner
-│       └── test_pattern.py  # pytest tests via load_pattern_module
+│       ├── test_pattern.py  # pytest tests via load_pattern_module
+│       ├── diagram.md       # Mermaid flowchart + tradeoff prose
+│       └── interview.md     # 8 Q&A pairs for interview preparation
 ├── shared/
 │   ├── llm_client.py        # LLMClient protocol · AnthropicClient · MockClient · build_client()
 │   ├── tools.py             # Tool dataclass · ToolRegistry with JSON Schema validation
@@ -405,7 +422,9 @@ ai-agents-design-patterns/
 2. Rewrite `pattern.py` — implement one `run_*` function that accepts an `LLMClient` and a `Trace`, records steps, and returns a result dataclass.
 3. Update `example.py` with new tools and a matching `mock_planner`.
 4. Update `test_pattern.py` — load via `load_pattern_module("21-new-name")` and assert on the result and trace.
-5. Optionally add a row to `bench/compare.py`.
+5. Write `diagram.md` — a Mermaid `flowchart LR` of the control flow and one paragraph on tradeoffs.
+6. Write `interview.md` — 8 Q&A pairs across Conceptual, Trade-offs, Implementation & Failure Modes, and Extension.
+7. Optionally add a row to `bench/compare.py` and a link in `INTERVIEW_PREP.md`.
 
 The shared client, tool registry, tracing, config, and test style carry over unchanged — adding a pattern is typically a ~50-line diff to `pattern.py`.
 

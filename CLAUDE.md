@@ -62,6 +62,7 @@ Each pattern directory contains these files:
 - **`example.py`** — runnable demo: builds tools, writes a deterministic `mock_planner`, calls `Config.from_env()` + `build_client()`, runs the pattern, renders the trace.
 - **`test_pattern.py`** — pytest tests: uses `load_pattern_module("NN-name")` to import `pattern.py`; builds a `MockClient` inline; asserts on the result and trace.
 - **`diagram.md`** — Mermaid flowchart of the pattern's control flow plus a short prose description of the tradeoffs. Rendered by GitHub and IDE Mermaid previews.
+- **`interview.md`** — 8 Q&A pairs across four categories: Conceptual, Trade-offs, Implementation & Failure Modes, Extension. Linked from the root `INTERVIEW_PREP.md` index.
 
 Pattern directories have a leading digit and hyphens (`07-react`), so they are **not importable as Python packages**. Only `shared` and `bench` are installed packages.
 
@@ -80,7 +81,9 @@ Loads all 20 patterns via `load_pattern_module`, runs the same 4 customer-suppor
 3. Update `example.py` with new tools and a matching `mock_planner`.
 4. Update `test_pattern.py` — tests load via `load_pattern_module("21-new-name")`.
 5. Write `diagram.md` — a Mermaid `flowchart LR` of the control flow and one paragraph on tradeoffs.
-6. Optionally add an entry to `bench/compare.py`.
+6. Write `interview.md` — 8 Q&A pairs across Conceptual, Trade-offs, Implementation & Failure Modes, and Extension categories.
+7. Add a link entry to `INTERVIEW_PREP.md` under the appropriate study group.
+8. Optionally add an entry to `bench/compare.py`.
 
 ## Environment variables
 
