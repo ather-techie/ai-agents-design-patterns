@@ -4,11 +4,12 @@
 
 ![Python](https://img.shields.io/badge/python-3.11%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
-![Tests](https://img.shields.io/badge/tests-passing-brightgreen)
+![CI](https://github.com/ather-techie/ai-agents-design-patterns/actions/workflows/ci.yml/badge.svg)
 ![Patterns](https://img.shields.io/badge/patterns-20-blueviolet)
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](#)
 
 ![Banner](docs/banner.png)
+
+If this helps you compare agent patterns, a ⭐ helps others find it too.
 
 ---
 
@@ -36,7 +37,7 @@
 - [Environment variables](#environment-variables)
 - [License](#license)
 
-<!-- Record `make demo` with asciinema + agg and save as docs/react-trace.gif, then uncomment: -->
+<!-- See docs/RECORDING.md for how to record `make demo` and produce docs/react-trace.gif, then uncomment: -->
 <!-- ![ReAct trace](docs/react-trace.gif) -->
 
 ## The problem this solves
@@ -418,15 +419,7 @@ ai-agents-design-patterns/
 
 ## Contributing a pattern
 
-1. Duplicate `patterns/07-react/` into `patterns/21-new-name/`.
-2. Rewrite `pattern.py` — implement one `run_*` function that accepts an `LLMClient` and a `Trace`, records steps, and returns a result dataclass.
-3. Update `example.py` with new tools and a matching `mock_planner`.
-4. Update `test_pattern.py` — load via `load_pattern_module("21-new-name")` and assert on the result and trace.
-5. Write `diagram.md` — a Mermaid `flowchart LR` of the control flow and one paragraph on tradeoffs.
-6. Write `interview.md` — 8 Q&A pairs across Conceptual, Trade-offs, Implementation & Failure Modes, and Extension.
-7. Optionally add a row to `bench/compare.py` and a link in `INTERVIEW_PREP.md`.
-
-The shared client, tool registry, tracing, config, and test style carry over unchanged — adding a pattern is typically a ~50-line diff to `pattern.py`.
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the full walkthrough. Short version: duplicate `patterns/07-react/`, rewrite `pattern.py`, update `example.py` and `test_pattern.py`, write `diagram.md` and `interview.md`, then add a row to the pattern table above. The shared client, tool registry, tracing, config, and test style carry over unchanged — adding a pattern is typically a ~50-line diff to `pattern.py`.
 
 ---
 
